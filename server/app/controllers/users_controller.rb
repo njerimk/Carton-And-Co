@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    class UsersController < ApplicationController
         def index
           @users = User.all 
           render json: UserSerializer.new(@users).to_serialized_json
@@ -7,7 +6,6 @@ class UsersController < ApplicationController
       
         def show
           @user = User.find(params[:id])
-          @commenters = @user.comments_to_this_user.new  
           render json:  UserSerializer.new(@user).to_serialized_json
         end
       
@@ -18,7 +16,9 @@ class UsersController < ApplicationController
       
         def create  
           @user = User.create(user_params)
-          @comment.created_at = Date.today  
+          # If you want to create a comment along with the user
+          # Comment.create(user: @user, content: "Initial comment", created_at: Time.current)
+          render json: UserSerializer.new(@user).to_json
       
         end
       
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
           if params[:file]
             @user = User.find(params[:id])
             @user.image.attach(params[:file])
-            @user.image_url = url_for(@user.image)
+            render json: UserSerializer.new(@user).to_json
           end
       
         end
@@ -38,13 +38,14 @@ class UsersController < ApplicationController
         def destroy
           @user = User.find(params[:id])
           @user.destroy
-          redirect_to '/users/new', :notice => "Your user has been deleted"
+          render json: { message: "User has been deleted" }
         end
       
       private 
         def user_params
-          params.require(:user).permit(:user_name, :user_description, :comments_to_this_user, :created_at, :likes, :comics)
+          params.require(:user).permit(:user_name, :user_description)
+
         end
-      end
+    
       
 end
