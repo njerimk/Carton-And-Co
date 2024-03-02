@@ -9,17 +9,12 @@ import UserIndex from './UserIndex'
 import UserProfile from './User/UserProfile'
 import ComicPage from './ComicProfiles/ComicPage'
 import LogIn from './components/auth/LogIn'
-// import SignUp from './components/auth/SignUp'
+import SignUp from './components/auth/SignUp'
 import Publish from './Publish'
 import DashBoard from './Dashboard'
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useNavigate
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
+
 
 
 export default class App extends Component {
@@ -122,16 +117,18 @@ handleLogout=()=> {
        
 
         <Routes>
-            <Route exact path="/publish" component={Publish}/>
-            <Route exact path="/login">{this.state.loggedInStatus === "LOGGED_IN"? 
-            <useNavigate to="/"/>
-            : <LogIn 
-            loggedInStatus={this.state.loggedInStatus} 
-            handleLogin={this.handleLogin}
-            handleSuccessfulAuth={this.handleSuccessfulAuth}
-            handleLogout={this.handleLogout}
-            />
-          }</Route>
+            <Route exact path="/publish" element={<Publish/>}/>
+            <Route exact path="/login" element={
+                  this.state.loggedInStatus === "LOGGED_IN" ? (
+                    <Navigate to="/" />
+                ) :  ( <LogIn
+                          loggedInStatus={this.state.loggedInStatus}
+                          handleLogin={this.handleLogin}
+                          handleSuccessfulAuth={this.handleSuccessfulAuth}
+                          handleLogout={this.handleLogout}
+              />
+            )
+            } />
             {/* <Route exact path="/login"
             render={props => (
               <LogIn {...props}
@@ -142,14 +139,14 @@ handleLogout=()=> {
               />
             )}
             /> */}
-            <Route exact path="/signup" />
+            <Route exact path="/signup" element={<SignUp/>} />
 
-            <Route exact path="/comics" component={ComicIndex}/>
-            <Route exact path="/comics/:id" component={ComicProfile}/>
-            <Route exact path="/comic_pages/:id" component={ComicPage}/>
+            <Route exact path="/comics" element={<ComicIndex/>}/>
+            <Route exact path="/comics/:id" element={<ComicProfile/>}/>
+            <Route exact path="/comic_pages/:id" element={<ComicPage/>}/>
             
-            <Route exact path="/users" component={UserIndex} />
-            <Route exact path="/users/:id" component={UserProfile}/>
+            <Route exact path="/users" element={<UserIndex/>} />
+            <Route exact path="/users/:id" element={<UserProfile/>}/>
 
             <Route exact path="/"
             render={props => (
