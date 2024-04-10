@@ -2,6 +2,10 @@ body {
   color: #85dcba;
 }
 
+@import '_slick.css';
+@import '_slickTheme.css';
+
+
 div.comic-profile-top{
   float: left;
 }

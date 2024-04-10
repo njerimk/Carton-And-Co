@@ -1,0 +1,27 @@
+.slick-Slide img {
+    filter: brightness(0.7); 
+    transition: filter 0.3s ease; 
+  }
+  
+.slick-center img {
+    filter: brightness(1);
+}
+
+.carousel-item {
+    width: 100%;
+    opacity: 0.7; /* Example opacity for non-centered items */
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+  }
+  
+  /* Centered carousel item */
+  .carousel-item.centered {
+    opacity: 1; /* Full opacity for centered item */
+    transform: scale(1.1); /* Example scaling effect */
+    z-index: 1; /* Bring centered item to front */
+  }
+  
+  /* Example hover effect for carousel items */
+  .carousel-item:hover {
+    opacity: 1; /* Full opacity on hover */
+    filter: brightness(1.2); /* Brighten on hover */
+  }

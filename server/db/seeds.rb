@@ -25,9 +25,9 @@ user_3 = User.create(user_name: usernames.sample(), user_desc: descriptions.samp
 
 
 comic_1 = Comic.create(title: comic_names.sample(), comic_desc: descriptions.sample(), image_url: "https://www.scifinow.co.uk/wp-content/uploads/2017/11/what-is-left-cover.jpg")
-comic_2 = Comic.create(title: comic_names.sample(), comic_desc: descriptions.sample(), image_url:"https://lillianportfoliomay.weebly.com/uploads/9/0/5/5/90554509/download-3_orig.png")
+comic_2 = Comic.create(title: comic_names.sample(), comic_desc: descriptions.sample(), image_url:"https://nekoplz.com/wp-content/uploads/2023/03/Your-Name.webp")
 comic_3 = Comic.create(title: comic_names.sample(), comic_desc: descriptions.sample(), image_url: "https://images.squarespace-cdn.com/content/v1/560c61bce4b05c07fc30b40d/1573230377509-BEZVP2JHIM2UHPYRYTF0/ke17ZwdGBToddI8pDm48kEnX-QEuM9piDOLTEgdIb_N7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UbgRWu4nDDJYe-3kPie-8CAGM-433BK3_94j_zVi4IAfOno-kJk2kRFa0i0GlSZ-nQ/LauraDean_14a+postable.jpg?format=500w", bg_image_url:"https://static.hollywoodreporter.com/sites/default/files/2020/03/dont0-h_2020-928x523.jpg")
-comic_4 = Comic.create(title: comic_names.sample(), comic_desc: descriptions.sample(), image_url: "https://mcad.edu/sites/default/files/profiles/Sycorax%20print%20file.png", bg_image_url: "https://www.previewsworld.com/SiteImage/MainImage/STL168406.jpg")
+comic_4 = Comic.create(title: comic_names.sample(), comic_desc: descriptions.sample(), image_url: "https://pbs.twimg.com/media/F_0fwCdW8AAxpVK.jpg", bg_image_url: "https://www.previewsworld.com/SiteImage/MainImage/STL168406.jpg")
 
 
 comic_page1 = ComicPage.create(page_name: comic_page_names.sample(), page_desc: descriptions.sample(), comic_id: comic_1.id, image_url: "https://static.hollywoodreporter.com/sites/default/files/2020/03/dont4-embed_2020-compressed.jpg" )
