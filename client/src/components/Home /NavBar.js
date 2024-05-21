@@ -70,7 +70,7 @@ const NavBar = (props) => {
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }} component={Link} to={`/${item.toLowerCase()}`}>
-                {item}
+                {item} 
               </Button>
             ))}
           </Box>

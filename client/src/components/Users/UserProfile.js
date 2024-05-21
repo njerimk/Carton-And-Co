@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PublishForm(props) {
+export default function UserProfile(props) {
     
 
     return (

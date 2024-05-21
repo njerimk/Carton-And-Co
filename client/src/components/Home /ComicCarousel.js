@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import '../style/_slick.css';
 import '../style/_slickTheme.css';
 import styles from '../style/ComicCarousel.scss'
+import {Link} from 'react-router-dom'
 // import comic1 from "../../images/cartonco_sample.png";
 // import comic2 from "../../images/cartonco_sample2.jpeg";
 // import comic3 from "../../images/EqQTbQ7XIAEAH1P.png";
@@ -47,11 +48,13 @@ export default function ComicCarousel() {
         <Slider {...settings}>
           {comics.map((comic, index) => (
             <div key={comic.title} className={styles.carouselItem}>
-                <Card sx={{ maxWidth: 480, marginRight:"20px" }}
+                <Link to={`/comics/${comic.id}`}><Card sx={{ maxWidth: 480, marginRight:"20px" }}
                       onMouseEnter={() => setHoveredIndex(index)}
                       onMouseLeave={() => setHoveredIndex(-1)}
                       style={{ filter: hoveredIndex === index ? 'brightness(1.0)' : 'brightness(0.7)' }} 
                 >
+                                        
+
                     <CardMedia
                       sx={{ height: 380 }}
                       image={comic.image_url}
@@ -59,6 +62,7 @@ export default function ComicCarousel() {
                       alt={`Slide ${index + 1}`}
                     />  
                  </Card>
+                 </Link>
             </div>
           ))}
         </Slider>
